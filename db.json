@@ -1,0 +1,68 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "UserName1",
+      "email": "q0@q.com",
+      "password": "password",
+      "contacts": [
+        {
+          "name": "Jonathan B. Searcy",
+          "email": "contact1@q.com"
+        },
+        {
+          "name": "Jesse E. Higgins",
+          "email": "contact2@q.com"
+        },
+        {
+          "name": "Rene C. Howard",
+          "email": "contact3@q.com"
+        },
+        {
+          "name": "Kenneth Z. Mosquera",
+          "email": "contact4@q.com"
+        },
+        {
+          "name": "Irvin S. Clark",
+          "email": "contact5@q.com"
+        },
+        {
+          "name": "Patricia J. Lee",
+          "email": "contact6@q.com"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "UserName2",
+      "email": "q1@q.com",
+      "password": "password",
+      "contacts": [
+        {
+          "name": "Jonathan B. Searcy",
+          "email": "contact1@q.com"
+        },
+        {
+          "name": "Jesse E. Higgins",
+          "email": "contact2@q.com"
+        },
+        {
+          "name": "Rene C. Howard",
+          "email": "contact3@q.com"
+        },
+        {
+          "name": "Kenneth Z. Mosquera",
+          "email": "contact4@q.com"
+        },
+        {
+          "name": "Irvin S. Clark",
+          "email": "contact5@q.com"
+        },
+        {
+          "name": "Patricia J. Lee",
+          "email": "contact6@q.com"
+        }
+      ]
+    }
+  ]
+}
