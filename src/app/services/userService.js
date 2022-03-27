@@ -8,6 +8,11 @@ export const userService = {
 
     return data;
   },
+  getUserById: async (userId) => {
+    const { data } = await httpService.get(userEndPoint + userId);
+
+    return data;
+  },
   create: async (payload) => {
     const { data } = await httpService.post(userEndPoint, payload);
 

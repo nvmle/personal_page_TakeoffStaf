@@ -43,6 +43,7 @@ const LoginForm = () => {
   };
 
   const handleChange = (target) => {
+    console.log(target);
     setData((prevState) => ({ ...prevState, [target.name]: target.value }));
   };
 
@@ -52,6 +53,8 @@ const LoginForm = () => {
     if (!isValid) return;
 
     console.log("SUBMIT");
+
+    // AUTH SERVICE проверка соответствия пары логин пароль и запись currentUser в localStorage
   };
 
   return (
