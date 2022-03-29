@@ -8,27 +8,9 @@ export const userService = {
 
     return data;
   },
-  getUserById: async (userId) => {
-    const { data } = await httpService.get(userEndPoint + userId);
-
-    return data;
-  },
   create: async (payload) => {
     const { data } = await httpService.post(userEndPoint, payload);
 
     console.log("create", data);
-  },
-  update: async (payload) => {
-    const { data } = await httpService.patch(
-      userEndPoint + payload.id,
-      payload
-    );
-
-    console.log("update", data);
-  },
-  delete: async (id) => {
-    const { data } = await httpService.delete(userEndPoint + id);
-
-    console.log(data);
   },
 };

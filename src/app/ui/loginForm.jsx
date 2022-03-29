@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import TextField from "../forms/textField";
-import { userService } from "../services/userService";
+import { logIn } from "../store/users";
 import { validator } from "../utils/validator";
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
 
-  //   const [users, setUsers] = useState([]);
-  useEffect(async () => {
-    const data = await userService.get();
-    console.log(data);
-    // setUsers(data);
-  }, []);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     validate();
@@ -43,7 +39,6 @@ const LoginForm = () => {
   };
 
   const handleChange = (target) => {
-    console.log(target);
     setData((prevState) => ({ ...prevState, [target.name]: target.value }));
   };
 
@@ -52,9 +47,7 @@ const LoginForm = () => {
     const isValid = validate();
     if (!isValid) return;
 
-    console.log("SUBMIT");
-
-    // AUTH SERVICE проверка соответствия пары логин пароль и запись currentUser в localStorage
+    dispatch(logIn(data));
   };
 
   return (
@@ -62,7 +55,7 @@ const LoginForm = () => {
       <h1>Login</h1>
       <TextField
         label="Email"
-        type="text"
+        type="email"
         name="email"
         value={data.email}
         onChange={handleChange}

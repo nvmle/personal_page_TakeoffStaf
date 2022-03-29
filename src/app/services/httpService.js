@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const baseHttpUrl = "http://localhost:3003/";
+// const baseHttpUrl = "http://localhost:3003/";
+const baseHttpUrl =
+  "https://my-json-server.typicode.com/nvmle/personal_page_TakeoffStaf/";
 
 const http = axios.create({
   baseURL: baseHttpUrl,
