@@ -28,22 +28,24 @@ const Contacts = () => {
   const filteredContacts = filterContacts();
 
   return (
-    <>
-      <h1>Contacts</h1>
-      <div>
-        <TextField
-          type="text"
-          label="Search"
-          name="search"
-          onChange={handleChange}
-        />
+    <div className="d-flex flex-column ">
+      <h1 className="mx-auto">Contacts</h1>
+      <div className="d-flex flex-column w-50 mx-auto p-4">
+        <div className="w-25">
+          <TextField
+            type="text"
+            label="Search"
+            name="search"
+            onChange={handleChange}
+          />
+        </div>
+        {isContactsLoading ? (
+          "Loading... "
+        ) : (
+          <ContactsList contacts={filteredContacts} />
+        )}
       </div>
-      {isContactsLoading ? (
-        "Loading... "
-      ) : (
-        <ContactsList contacts={filteredContacts} />
-      )}
-    </>
+    </div>
   );
 };
 

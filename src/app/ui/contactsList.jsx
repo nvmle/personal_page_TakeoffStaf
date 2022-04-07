@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import ContactsTable from "./contactsTable";
 import CreateContact from "./createContact";
@@ -16,6 +17,9 @@ const ContactsList = ({ contacts }) => {
       <CreateContact />
     </>
   );
+};
+ContactsList.propTypes = {
+  contacts: PropTypes.array,
 };
 
 export default ContactsList;

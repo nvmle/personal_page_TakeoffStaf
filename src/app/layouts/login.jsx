@@ -11,13 +11,32 @@ const Login = () => {
     dispatch(logOut());
   };
 
-  if (!isLoggedIn) return <LoginForm />;
   return (
-    <>
-      <h2>{currentUserData[0].name}</h2>
-      <button onClick={handleLogOut}>Log Out</button>
-    </>
+    <div className="constainer mt-5">
+      <div className="row">
+        <div className="col-md-4 offset-md-4 shadow p-4">
+          {!isLoggedIn ? (
+            <LoginForm />
+          ) : (
+            <>
+              <h2 className="mb-4">Hello, {currentUserData[0].name}</h2>
+              <button className="btn btn-secondary" onClick={handleLogOut}>
+                Log Out
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
+
+  // if (!isLoggedIn) return <LoginForm />;
+  // return (
+  //   <>
+  //     <h2>{currentUserData[0].name}</h2>
+  //     <button onClick={handleLogOut}>Log Out</button>
+  //   </>
+  // );
 };
 
 export default Login;

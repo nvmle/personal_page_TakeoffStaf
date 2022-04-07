@@ -12,6 +12,9 @@ export function validator(data, config) {
         const emailRegExp = /^\w+@\w+\.\w+$/g;
         statusValidate = !emailRegExp.test(data);
         break;
+      case "min":
+        statusValidate = data.length < config.value;
+        break;
       default:
         break;
     }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { removeContact, updateContact } from "../store/contacts";
 
@@ -35,7 +36,7 @@ const ContactsTable = ({ contacts, columns }) => {
 
   return (
     <>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             {Object.keys(columns).map((column) => (
@@ -52,6 +53,7 @@ const ContactsTable = ({ contacts, columns }) => {
                   {contact[columns[column].path] ? (
                     contact.id === editContact.id ? (
                       <input
+                        className="w-75 "
                         value={editContact?.[columns[column].path]}
                         onChange={handleChange}
                         name={[columns[column].path]}
@@ -65,31 +67,35 @@ const ContactsTable = ({ contacts, columns }) => {
                         <>
                           <button
                             type="button"
+                            className="btn btn-success me-2"
                             onClick={() => handleSave(contact.id)}
                           >
-                            save
+                            <i className="bi bi-check-square  "></i>
                           </button>
                           <button
                             type="button"
+                            className="btn btn-secondary  me-2"
                             onClick={() => handleToggleEdit(contact.id)}
                           >
-                            cancel
+                            <i className="bi bi-x-square"></i>
                           </button>{" "}
                         </>
                       ) : (
                         <button
                           type="button"
+                          className="btn btn-primary me-2"
                           onClick={() => handleToggleEdit(contact.id)}
                         >
-                          edit
+                          <i className="bi bi-pencil"></i>
                         </button>
                       )}
 
                       <button
                         type="button"
+                        className="btn btn-danger  me-2"
                         onClick={() => handleRemove(contact.id)}
                       >
-                        delete
+                        <i className="bi bi-trash"></i>
                       </button>
                     </>
                   )}
@@ -101,6 +107,10 @@ const ContactsTable = ({ contacts, columns }) => {
       </table>
     </>
   );
+};
+ContactsTable.propTypes = {
+  contacts: PropTypes.array,
+  columns: PropTypes.object,
 };
 
 export default ContactsTable;

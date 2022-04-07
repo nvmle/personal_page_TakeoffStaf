@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { userService } from "../services/userService";
+import history from "../utils/history";
 
 const initialState = localStorage.getItem("currentUser")
   ? {
@@ -59,7 +60,6 @@ export const loadUsersList = () => async (dispatch) => {
   dispatch(usersRequested());
   try {
     const data = await userService.get();
-
     dispatch(usersReceived(data));
   } catch (error) {}
 };
@@ -77,6 +77,7 @@ export const logIn =
       dispatch(authRequestSuccess({ userId: users[userIndex].id }));
 
       localStorage.setItem("currentUser", users[userIndex].id);
+      history.push("/contacts");
     } else {
       console.log("uncorrect pair login+password");
       dispatch(authRequestFailed());

@@ -17,7 +17,6 @@ const LoginForm = () => {
   const isValid = Object.keys(errors).length === 0;
   const validate = () => {
     const errors = validator(data, validationConfig);
-    console.log(errors);
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -34,6 +33,10 @@ const LoginForm = () => {
     password: {
       isRequired: {
         message: "Пароль обязателен для заполнения",
+      },
+      min: {
+        message: "Пароль должен быть не менее 8 символов",
+        value: 8,
       },
     },
   };
@@ -52,7 +55,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h2 className="mb-4">Login</h2>
       <TextField
         label="Email"
         type="email"
@@ -69,7 +72,11 @@ const LoginForm = () => {
         onChange={handleChange}
         error={errors.password}
       />
-      <button type="submit" disabled={!isValid}>
+      <button
+        type="submit"
+        disabled={!isValid}
+        className="btn btn-primary w-50 mx-auto justify-content-center"
+      >
         Войти
       </button>
     </form>
