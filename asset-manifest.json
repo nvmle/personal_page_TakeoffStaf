@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/nvmle/personal_page_TakeoffStaf/static/css/main.434d85ca.css",
-    "main.js": "/nvmle/personal_page_TakeoffStaf/static/js/main.92d5953a.js",
-    "index.html": "/nvmle/personal_page_TakeoffStaf/index.html",
-    "main.434d85ca.css.map": "/nvmle/personal_page_TakeoffStaf/static/css/main.434d85ca.css.map",
-    "main.92d5953a.js.map": "/nvmle/personal_page_TakeoffStaf/static/js/main.92d5953a.js.map"
+    "main.css": "/personal_page_TakeoffStaf/static/css/main.434d85ca.css",
+    "main.js": "/personal_page_TakeoffStaf/static/js/main.92d5953a.js",
+    "index.html": "/personal_page_TakeoffStaf/index.html",
+    "main.434d85ca.css.map": "/personal_page_TakeoffStaf/static/css/main.434d85ca.css.map",
+    "main.92d5953a.js.map": "/personal_page_TakeoffStaf/static/js/main.92d5953a.js.map"
   },
   "entrypoints": [
     "static/css/main.434d85ca.css",
