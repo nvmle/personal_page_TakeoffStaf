@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TextField from "../forms/textField";
-import { logIn } from "../store/users";
+import { getAuthError, logIn } from "../store/users";
 import { validator } from "../utils/validator";
 
 const LoginForm = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const loginError = useSelector(getAuthError());
 
   const dispatch = useDispatch();
 
@@ -72,6 +73,7 @@ const LoginForm = () => {
         onChange={handleChange}
         error={errors.password}
       />
+      {loginError && <p className="text-danger">{loginError.message}</p>}
       <button
         type="submit"
         disabled={!isValid}

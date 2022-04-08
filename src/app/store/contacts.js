@@ -54,45 +54,48 @@ export const loadContactList = (userId) => async (dispatch) => {
 
     dispatch(contactsReceived(contactsList));
   } catch (error) {
-    console.log("Error:", error);
+    console.log("There is an error:", error);
     dispatch(contactsReceiveFailed(error));
   }
 };
 
 export const createContact = (data) => async (dispatch, getState) => {
   const currentUser = getState().users.auth.userId;
-  //   const currentUser = "1";
   const newContact = { ...data, user_id: currentUser };
 
   try {
     const content = await contactService.create(newContact);
     dispatch(contactCreated(content));
-  } catch (error) {}
+  } catch (error) {
+    console.log("There is an error:", error);
+  }
 };
 
 export const removeContact = (contactId) => async (dispatch) => {
   try {
-    await contactService.delete(contactId);
+    // Так как fake api не дает возможности совершать patch и delete запросы
+    // работа будет происходить с локальным стейтом
+    // Команда ниже вызывает запрос удаления из fake api
+    // await contactService.delete(contactId);
     dispatch(contactRemoved(contactId));
   } catch (error) {
-    console.log(error);
+    console.log("There is an error:", error);
   }
 };
 
 export const updateContact = (data) => async (dispatch) => {
   try {
-    const content = await contactService.update(data);
-    dispatch(contactSuccessUpdated(content));
-  } catch (error) {}
+    // Так как fake api не дает возможности совершать patch и delete запросы
+    // работа будет происходить с локальным стейтом
+    // Команда ниже вызывает запрос обновления в fake api
+    // const content = await contactService.update(data);
+    dispatch(contactSuccessUpdated(data));
+  } catch (error) {
+    console.log("There is an error:", error);
+  }
 };
 
 export const getContactList = () => (state) => state.contacts.entities;
 export const getIsLoadingContacts = () => (state) => state.contacts.isLoading;
-// export const getContactListByUserId = (userId) => (state) => {
-//   if (state.contacts.entities) {
-//     return state.contacts.entities.filter(
-//       (contact) => contact.user_id === userId
-//     );
-//   }
-// };
+
 export default contactsReducer;

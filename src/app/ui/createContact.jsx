@@ -26,6 +26,8 @@ const CreateContact = () => {
     setNewContact(() => ({ name: "", email: "" }));
   };
 
+  const isEmpty = !newContact.name || !newContact.email ? true : false;
+
   return (
     <form onSubmit={handleSubmit} className="w-25">
       <h5>Create new contact</h5>
@@ -43,7 +45,7 @@ const CreateContact = () => {
         value={newContact.email}
         onChange={handleChange}
       />
-      <button type="sumbit" className="btn btn-primary">
+      <button type="sumbit" className="btn btn-primary" disabled={isEmpty}>
         Create
       </button>
     </form>

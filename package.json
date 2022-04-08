@@ -1,6 +1,7 @@
 {
   "name": "personal-page",
   "version": "0.1.0",
+  "homepage": "https://github.com/nvmle/personal_page_TakeoffStaf",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
@@ -20,7 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

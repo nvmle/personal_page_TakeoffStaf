@@ -16,7 +16,18 @@ const Login = () => {
       <div className="row">
         <div className="col-md-4 offset-md-4 shadow p-4">
           {!isLoggedIn ? (
-            <LoginForm />
+            <>
+              <LoginForm />
+              <p className="mt-4">
+                Demo login-password:
+                <br />
+                q1@q.com password1
+                <br />
+                q2@q.com password2
+                <br />
+                q3@q.com password3
+              </p>
+            </>
           ) : (
             <>
               <h2 className="mb-4">Hello, {currentUserData[0].name}</h2>

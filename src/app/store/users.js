@@ -30,14 +30,18 @@ const usersSlice = createSlice({
       state.isLoading = false;
     },
     authRequested(state) {
-      //   state.isLoading = true;
+      state.isLoading = true;
+      state.error = null;
     },
     authRequestSuccess(state, action) {
       state.auth = action.payload;
       state.isLoggedIn = true;
+      state.isLoading = false;
     },
-    authRequestFailed(state) {
+    authRequestFailed(state, action) {
       state.isLoggedIn = false;
+      state.error = action.payload;
+      state.isLoading = false;
     },
     userLoggedOut(state) {
       state.isLoggedIn = null;
@@ -73,14 +77,15 @@ export const logIn =
 
     const userIndex = users.findIndex((user) => user.email === email);
 
-    if (users[userIndex].password === password) {
+    if (users[userIndex]?.password === password) {
       dispatch(authRequestSuccess({ userId: users[userIndex].id }));
 
       localStorage.setItem("currentUser", users[userIndex].id);
       history.push("/contacts");
     } else {
-      console.log("uncorrect pair login+password");
-      dispatch(authRequestFailed());
+      dispatch(
+        authRequestFailed({ message: "Incorrect pair login - password" })
+      );
     }
   };
 
@@ -94,5 +99,6 @@ export const getIsLoading = () => (state) => state.users.isLoading;
 export const getCurrentUser = () => (state) => state.users.auth;
 export const getCurrentUserData = () => (state) =>
   state.users.entities.filter((user) => user.id === state.users.auth?.userId);
+export const getAuthError = () => (state) => state.users.error;
 
 export default usersReducer;
