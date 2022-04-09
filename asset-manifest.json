@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/personal_page_TakeoffStaf/static/css/main.434d85ca.css",
-    "main.js": "/personal_page_TakeoffStaf/static/js/main.92d5953a.js",
+    "main.js": "/personal_page_TakeoffStaf/static/js/main.c0d892a1.js",
     "index.html": "/personal_page_TakeoffStaf/index.html",
     "main.434d85ca.css.map": "/personal_page_TakeoffStaf/static/css/main.434d85ca.css.map",
-    "main.92d5953a.js.map": "/personal_page_TakeoffStaf/static/js/main.92d5953a.js.map"
+    "main.c0d892a1.js.map": "/personal_page_TakeoffStaf/static/js/main.c0d892a1.js.map"
   },
   "entrypoints": [
     "static/css/main.434d85ca.css",
-    "static/js/main.92d5953a.js"
+    "static/js/main.c0d892a1.js"
   ]
 }
