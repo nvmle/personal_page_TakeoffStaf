@@ -50,7 +50,8 @@ const ContactsTable = ({ contacts, columns }) => {
             <tr key={contact.id}>
               {Object.keys(columns).map((column) => (
                 <td key={column}>
-                  {contact[columns[column].path] ? (
+                  {contact[columns[column].path] ||
+                  contact[columns[column].path] === "" ? (
                     contact.id === editContact.id ? (
                       <input
                         className="w-75 "
